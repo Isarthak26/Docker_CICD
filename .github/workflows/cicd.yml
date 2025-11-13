@@ -38,7 +38,8 @@ jobs:
 
     steps:
       - name: Pull image
-        run: docker pull docker.io/${{ secrets.REGISTRY_USERNAME }}/${{ secrets.IMAGE_NAME }}:latest
+        run: docker pull ${{ secrets.REGISTRY_USERNAME }}/${{ secrets.IMAGE_NAME }}:latest
+
 
       - name: Run container
         run: docker run -d -p 5000:5000 --name test docker.io/${{ secrets.REGISTRY_USERNAME }}/${{ secrets.IMAGE_NAME }}:latest
